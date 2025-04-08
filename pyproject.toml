@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=78.1.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dynamic-protobuf"
+version = "0.1.0"
+description = "Create Protocol Buffer message classes dynamically at runtime"
+readme = "README.md"
+requires-python = ">=3.13"
+license = {text = "MIT"}
+authors = [
+    {name = "Erik Moroz", email = "hello@erikmoroz.com"}
+]
+
+[project.urls]
+"Homepage" = "https://github.com/erikmoroz/dynamic-protobuf"
+"Bug Tracker" = "https://github.com/erikmoroz/dynamic-protobuf/issues"
+
+[tool.ruff]
+line-length = 120
+target-version = "py313"
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
+
+[tool.ruff.lint.isort]
+case-sensitive = true
+combine-as-imports = true
+length-sort = true
+known-first-party = ["protobuf_schema_builder"]
+section-order = ["future", "standard-library", "third-party", "first-party", "local-folder"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+dependencies = [
+    "protobuf>=6.30.2",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.11.4",
+]
